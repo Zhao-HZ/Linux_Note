@@ -35,7 +35,7 @@ hey: one two
 ## Implicit Rules
 - ### Compiling a C program: `n.o` is made automatically from `n.c` with a command of the form `$(CC) -c $(CPPFLAGS) $(CFLAGS`
 - ### Compiling a C++ program: `n.o` is made automatically from `n.cc` or `n.cpp` with a command of the form `$(CC) -c $(CPPFLAGS) $(CXXFLAGS)`
-- ### Linking a single object file: `n` is made automatically from `n.o` by running the command `$(CC $(LDFLAGS) n.o $(LOADLIBES) $(LDLIBS)`
+- ### Linking a single object file: `n` is made automatically from `n.o` by running the command `$(CC) $(LDFLAGS) n.o $(LOADLIBES) $(LDLIBS)`
 
 The important variables used by implicit rules are:
 
