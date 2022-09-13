@@ -1,14 +1,14 @@
 # Makefile Syntax
 
 ## A makefile consists of a set of rules
-```
+```makefile
 targets: prequisites
     command
     command
     command
 ```
 ## e.g
-```
+```makefile
 hello: 
     echo "Hello, World"
     echo "Hello, Everyone"
@@ -18,7 +18,7 @@ there are two commands
 there is not a prequisites
 
 ## More example 1(blah.c makefile)
-```
+```makefile
 blah: 
     gcc blah.c -o blah
 ```
@@ -31,7 +31,7 @@ This is because the ```blah``` file alrady exists.
 but if we modify ```blah.c``` and then run ```make```, nothing gets recompiled.
 
 ##### solution
-```
+```makefile
 blah: blah.c 
     gcc blah.c -o blah
 ```
@@ -42,7 +42,7 @@ if ```blah.c``` is modified, running ```make``` should recompile the file
 
 ## More example 2(blah.c blah.o makefile)
 
-```
+```makefile
 blah: blah.o
 	gcc blah.o -o blah
 
@@ -55,7 +55,7 @@ blah.c:
 When you run ```make``` in the terminal, it will build a program called ```blah``` in a series of steps.
 
 ## More example 3
-```
+```makefile
 some_file: other_file
     echo "This will always run, and runs second"
     touch some_file
@@ -69,7 +69,7 @@ It will always run both targets, because ```some_file``` depends on ```other_fil
 
 ## Example1 for the Variables
 
-```
+```makefile
 files := file1 file2
 
 some_file: $(files)
@@ -87,7 +87,7 @@ clean:
 ```
 Notice: Single or double quotes have no meaning to Make. They are simply characters that are assigned to the variable.
 ### In this example, the two commands behave the same:
-```
+```makefile
 a := one two
 b := 'one two' # Not recommended
 all:
@@ -97,7 +97,7 @@ all:
 
 # Targets
 - ### one example
-```
+```makefile
 all: one two three
 
 one:
@@ -115,7 +115,7 @@ clean:
 Notice: Make an ```all``` target. Since this is the first rule listed. it will run by default if ```make``` is called without specifying a target
 - ### Multiple targets
 When there are multiple targets for a rule, the commands will be run for each targets. 
-```
+```makefile
 all: f1.o f2.o
 
 f1.o f2.o:
@@ -125,7 +125,7 @@ f1.o f2.o:
 # f2.o
 ```
 it is equivalent to 
-```
+```makefile
 all: f1.o f2.o
 
 f1.o:
