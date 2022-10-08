@@ -33,6 +33,15 @@ unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
    
    **However by default, the sed command replaces the first occurence of the pattern in each line and it won't replace the second, third...occurence in the line**
 
+   ### supplement
+   `sed 1,$s/unix/(&)/g` file.txt
+   ```
+    (unix) is great os. (unix) is opensource. (unix) is free os.
+    learn operating system.
+    (unix) linux which one you choose.
+    (unix) is easy to learn.(unix) is a multiuser os.Learn (unix) .(unix) is a powerful.
+   ```
+
 ## 2. Replacing the n-th occurrence of a pattern in a line
    `sed 's/unix/linux/2' file.txt`
    
@@ -137,5 +146,69 @@ linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
 ## 11. To Delete pattern matching line
     
     ```
-    $ sed '/pattern/d' filename.txtssedse
+    $ sed '/pattern/d' filename.txt
     ```
+test.txt
+```
+11
+22
+33
+44
+55
+```
+## 12. `sed '/44/,+1d' test.txt`
+```
+11
+22
+33
+```
+## 13. Insert 
+### 1. `sed '1ahello' test.txt`
+```
+11
+hello
+22
+33
+44
+55
+```
+### 2. `sed '/22/achina' test.txt` 
+```
+11
+22
+china
+33
+44
+55
+```
+### 3. `sed '$afuck' test.txt`
+```
+11
+22
+33
+44
+55
+fuck
+```
+### 4. `sed '3igood' test.txt`
+```
+11
+22
+good
+33
+44
+55
+```
+## 12. `y`
+### Syntax
+```
+y/inchars/outchars/
+```
+`sed 'y/123/789/2,g' test.txt`
+```
+77
+88
+99
+44
+55
+```

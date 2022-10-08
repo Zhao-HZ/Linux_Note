@@ -1,7 +1,7 @@
 <img src='./res/variable.png'>
 
 ```
-B-hello-headers$ tree
+$tree
 .
 ├── CMakeLists.txt
 ├── include
@@ -28,3 +28,8 @@ file(GLOB SOURCES "src/*.cpp")
 ## 2. Including Directories
 
 When you have different include folders, you can make your compiler aware of them using the `target_include_directories()` function.When compiling this target this will add these directories to the compiler with the -I flag e.g. `-I/directory/path`
+## 3. Verbost Output
+ To see the full output for debugging purposes you can add VERBOSE=1 flag when running make.
+```
+$ make VERBOSE=1  
+```
