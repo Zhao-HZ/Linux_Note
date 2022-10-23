@@ -125,7 +125,7 @@ all:
 	echo $(make_var)
 ```
 # Functions
-### - subst not
+- subst not
 ```makefile
 bar := ${subst not, totally, "I am not superman"}
 ```
@@ -133,9 +133,9 @@ output:
 ```
 I am totally superman
 ```
-### - patsubst
+- patsubst
 
-### - foreach
+- foreach
 ```makefile
 foo := who are you
 bar := $(foreach wrd,$(foo),$(wrd)!)
@@ -146,8 +146,7 @@ output:
 ```
 who! are! you!
 ```
-### - 
-`if` checks if the first argument is nonempty.
+- `if` checks if the first argument is nonempty.
 if so runs the second argument, otherwise runs the third
 ```makefile
 foo := $(if this-is-not-empty,then!,else!)
@@ -163,7 +162,7 @@ output:
 then!
 else!
 ```
-### - call
+- call
 syntax: `$(call variable,param,param)`
 and \$(0) is the variable, \$(1), \$(2) are the params.
 ```makefile
@@ -173,8 +172,8 @@ all:
 	# Outputs "Variable Name: sweet_new_fn First: go Second: tigers Empty Variable:"
 	@echo $(call sweet_new_fn, go, tigers)
 ```
-### - shell 
-### - patsubst
+- shell 
+- patsubst
 ```makefile
 foo := a.o b.o l.a c.o
 one := $(patsubst %.o,%.c,$(foo))
@@ -189,3 +188,14 @@ all:
 	echo $(three) 
 ```
 #### it replaces newlines with spaces! 
+
+- filter
+- filter-out
+```makefile
+OBJECT=main.c func1.c func2.c func3.c
+print:
+	#echo $(filter-out main.c func2.c,$(OBJECT))
+#	func1.c func3.c	
+	@echo $(filter main.c func2.c,$(OBJECT))
+#	main.c func2.c
+```
