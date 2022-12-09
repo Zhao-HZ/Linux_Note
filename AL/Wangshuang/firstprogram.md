@@ -30,7 +30,7 @@ codesg ends
 - assume
 用assume cs:codesg将用作代码段的段codesg和CPU中的段寄存器cs联系起来
 exe的执行过程
-<img src="executable.png"></img>
+<img src="./res/executable.png"></img>
 
 > (r)表示寄存器r的值
 loop指令的格式: `loop 标号`

@@ -5,7 +5,7 @@ POP(入栈)
 PUSH(出栈)
 ```
 
-<img src="stack.png"></img>
+<img src="./res/stack.png"></img>
 ```
 mov ax, 0123H
 push ax

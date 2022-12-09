@@ -33,4 +33,4 @@ mov ax, 2000h
 mov ds, ax
 mov al, ds:[0]
 ```
-<img src="segmentregister.png"></img>
+<img src="./res/segmentregister.png"></img>

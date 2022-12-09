@@ -1,37 +1,12 @@
-assume cs:codesg, ss:codesg, ds:datasg
-
-stacksg segment
-        dw 0, 0, 0, 0, 0, 0, 0, 0
-stacksg ends
-
-datasg segment
-        db '1. display      '
-        db '2. brows        '
-        db '3. replace      '
-        db '4. modify       '
-datasg ends
+assume cs:codesg
 
 codesg segment
-start:  mov ax, datasg
-        mov ds, ax
-        mov ax, stacksg
-        mov ss, ax
-        mov sp, 16
-        mov bx, 0
-        
-        mov cx, 4
-s0:     push cx
-        mov si, 0
-        mov cx, 4
-s:      mov al, [bx+si]
-        and al, 11011111b         
-        mov [bx+si+3], al
-        inc si
-        loop s
-        add bx, 16
-        pop cx
-        loop s0
+start:  mov ax, 0
+        call s        
+        inc ax
+s:      pop ax
         mov ax, 4c00h
-        int 21h
+        int 21
 codesg ends
+
 end start
